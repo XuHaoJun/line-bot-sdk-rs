@@ -10,4 +10,5 @@ members = [
     "packages/line-bot-sdk-manage-audience",
     "packages/line-bot-sdk-liff",
     "packages/line-bot-sdk-channel-access-token",
+    "packages/line-bot-sdk-utils",
 ]

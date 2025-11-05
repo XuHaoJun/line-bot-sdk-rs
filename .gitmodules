@@ -1,3 +1,6 @@
 [submodule "line-openapi"]
 	path = line-openapi
 	url = git@github.com:line/line-openapi.git
+[submodule "learn-projects/line-bot-sdk-nodejs"]
+	path = learn-projects/line-bot-sdk-nodejs
+	url = git@github.com:line/line-bot-sdk-nodejs.git

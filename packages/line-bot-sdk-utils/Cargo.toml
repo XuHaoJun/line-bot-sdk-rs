@@ -1,0 +1,13 @@
+[package]
+name = "line-bot-sdk-utils"
+version = "0.1.0"
+authors = ["OpenAPI Generator team and contributors"]
+description = "Utility functions for LINE Bot SDK, including webhook signature validation"
+license = "Unlicense"
+edition = "2021"
+
+[dependencies]
+hmac = "0.12"
+sha2 = "0.10"
+base64 = "0.21"
+

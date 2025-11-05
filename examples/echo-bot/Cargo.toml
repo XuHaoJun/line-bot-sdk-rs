@@ -1,0 +1,23 @@
+[package]
+name = "echo-bot"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+
+[[bin]]
+name = "echo-bot"
+path = "src/main.rs"
+
+[dependencies]
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+serde_json = "1.0"
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors"] }
+
+# LINE Bot SDK packages
+line-bot-sdk-webhook = { path = "../../packages/line-bot-sdk-webhook" }
+line-bot-sdk-messaging-api = { path = "../../packages/line-bot-sdk-messaging-api" }
+line-bot-sdk-utils = { path = "../../packages/line-bot-sdk-utils" }
+
