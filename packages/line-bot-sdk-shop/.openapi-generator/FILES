@@ -1,0 +1,16 @@
+.gitignore
+.openapi-generator-ignore
+.travis.yml
+Cargo.toml
+README.md
+docs/ErrorResponse.md
+docs/MissionStickerRequest.md
+docs/ShopApi.md
+git_push.sh
+src/apis/configuration.rs
+src/apis/mod.rs
+src/apis/shop_api.rs
+src/lib.rs
+src/models/error_response.rs
+src/models/mission_sticker_request.rs
+src/models/mod.rs

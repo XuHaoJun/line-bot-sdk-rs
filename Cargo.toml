@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = [
+    "packages/line-bot-sdk-messaging-api",
+    "packages/line-bot-sdk-insight",
+    "packages/line-bot-sdk-module",
+    "packages/line-bot-sdk-module-attach",
+    "packages/line-bot-sdk-webhook",
+    "packages/line-bot-sdk-shop",
+    "packages/line-bot-sdk-manage-audience",
+    "packages/line-bot-sdk-liff",
+    "packages/line-bot-sdk-channel-access-token",
+]

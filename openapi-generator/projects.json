@@ -1,0 +1,42 @@
+{
+  "git-user-id": "xuhaojun",
+  "git-repo-id": "line-bot-sdk-rs",
+  "projects": [
+    {
+      "spec": "messaging-api.yml",
+      "packageName": "line-bot-sdk-messaging-api"
+    },
+    {
+      "spec": "insight.yml",
+      "packageName": "line-bot-sdk-insight"
+    },
+    {
+      "spec": "module.yml",
+      "packageName": "line-bot-sdk-module"
+    },
+    {
+      "spec": "module-attach.yml",
+      "packageName": "line-bot-sdk-module-attach"
+    },
+    {
+      "spec": "webhook.yml",
+      "packageName": "line-bot-sdk-webhook"
+    },
+    {
+      "spec": "shop.yml",
+      "packageName": "line-bot-sdk-shop"
+    },
+    {
+      "spec": "manage-audience.yml",
+      "packageName": "line-bot-sdk-manage-audience"
+    },
+    {
+      "spec": "liff.yml",
+      "packageName": "line-bot-sdk-liff"
+    },
+    {
+      "spec": "channel-access-token.yml",
+      "packageName": "line-bot-sdk-channel-access-token"
+    }
+  ]
+}
