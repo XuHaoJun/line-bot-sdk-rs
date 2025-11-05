@@ -1,0 +1,12 @@
+{
+  "name": "line-bot-sdk-rs-generator",
+  "version": "1.0.0",
+  "description": "OpenAPI generator for LINE Bot SDK Rust",
+  "main": "genertate-all.js",
+  "scripts": {
+    "generate": "node genertate-all.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

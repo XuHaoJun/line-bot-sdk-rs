@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | **String** |  | 
+**r#type** | Option<**String**> |  | [optional]
 **layout** | **String** |  | 
 **flex** | Option<**i32**> |  | [optional]
 **contents** | [**Vec<models::FlexComponent>**](FlexComponent.md) |  | 

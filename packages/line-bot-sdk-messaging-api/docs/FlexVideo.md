@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | **String** |  | 
+**r#type** | Option<**String**> |  | [optional]
 **url** | **String** |  | 
 **preview_url** | **String** |  | 
 **alt_content** | [**models::FlexComponent**](FlexComponent.md) |  | 

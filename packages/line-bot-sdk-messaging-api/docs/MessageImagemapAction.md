@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | **String** |  | 
-**area** | [**models::ImagemapArea**](ImagemapArea.md) |  | 
+**r#type** | Option<**String**> |  | [optional]
+**area** | Option<[**models::ImagemapArea**](ImagemapArea.md)> |  | [optional]
 **text** | **String** |  | 
 **label** | Option<**String**> |  | [optional]
 

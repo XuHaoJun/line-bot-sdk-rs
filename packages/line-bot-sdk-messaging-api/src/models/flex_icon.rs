@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FlexIcon {
-    #[serde(rename = "type")]
-    pub r#type: String,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
     #[serde(rename = "url")]
     pub url: String,
     #[serde(rename = "size", skip_serializing_if = "Option::is_none")]
@@ -38,9 +38,9 @@ pub struct FlexIcon {
 }
 
 impl FlexIcon {
-    pub fn new(r#type: String, url: String) -> FlexIcon {
+    pub fn new(url: String) -> FlexIcon {
         FlexIcon {
-            r#type,
+            r#type: None,
             url,
             size: None,
             aspect_ratio: None,

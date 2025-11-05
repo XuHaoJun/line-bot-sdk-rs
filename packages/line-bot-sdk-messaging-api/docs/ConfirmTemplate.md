@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | **String** |  | 
+**r#type** | Option<**String**> |  | [optional]
 **text** | **String** |  | 
 **actions** | [**Vec<models::Action>**](Action.md) |  | 
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | **String** | Type of message | 
+**r#type** | Option<**String**> | Type of message | [optional]
 **quick_reply** | Option<[**models::QuickReply**](QuickReply.md)> |  | [optional]
 **sender** | Option<[**models::Sender**](Sender.md)> |  | [optional]
 **coupon_id** | **String** | Unique identifier of the coupon. | 

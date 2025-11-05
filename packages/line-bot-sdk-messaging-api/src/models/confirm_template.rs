@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ConfirmTemplate {
-    #[serde(rename = "type")]
-    pub r#type: String,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
     #[serde(rename = "text")]
     pub text: String,
     #[serde(rename = "actions")]
@@ -22,9 +22,9 @@ pub struct ConfirmTemplate {
 }
 
 impl ConfirmTemplate {
-    pub fn new(r#type: String, text: String, actions: Vec<models::Action>) -> ConfirmTemplate {
+    pub fn new(text: String, actions: Vec<models::Action>) -> ConfirmTemplate {
         ConfirmTemplate {
-            r#type,
+            r#type: None,
             text,
             actions,
         }

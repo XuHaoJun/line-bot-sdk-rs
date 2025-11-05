@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | **String** |  | 
-**area** | [**models::ImagemapArea**](ImagemapArea.md) |  | 
+**r#type** | Option<**String**> |  | [optional]
+**area** | Option<[**models::ImagemapArea**](ImagemapArea.md)> |  | [optional]
 **clipboard_text** | **String** | Text that is copied to the clipboard. Max character limit: 1000  | 
 **label** | Option<**String**> |  | [optional]
 

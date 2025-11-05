@@ -14,8 +14,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TemplateMessage {
     /// Type of message
-    #[serde(rename = "type")]
-    pub r#type: String,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
     #[serde(rename = "quickReply", skip_serializing_if = "Option::is_none")]
     pub quick_reply: Option<Box<models::QuickReply>>,
     #[serde(rename = "sender", skip_serializing_if = "Option::is_none")]
@@ -27,9 +27,9 @@ pub struct TemplateMessage {
 }
 
 impl TemplateMessage {
-    pub fn new(r#type: String, alt_text: String, template: models::Template) -> TemplateMessage {
+    pub fn new(alt_text: String, template: models::Template) -> TemplateMessage {
         TemplateMessage {
-            r#type,
+            r#type: None,
             quick_reply: None,
             sender: None,
             alt_text,

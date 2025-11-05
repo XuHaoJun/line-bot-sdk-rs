@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FlexBox {
-    #[serde(rename = "type")]
-    pub r#type: String,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
     #[serde(rename = "layout")]
     pub layout: Layout,
     #[serde(rename = "flex", skip_serializing_if = "Option::is_none")]
@@ -72,9 +72,9 @@ pub struct FlexBox {
 }
 
 impl FlexBox {
-    pub fn new(r#type: String, layout: Layout, contents: Vec<models::FlexComponent>) -> FlexBox {
+    pub fn new(layout: Layout, contents: Vec<models::FlexComponent>) -> FlexBox {
         FlexBox {
-            r#type,
+            r#type: None,
             layout,
             flex: None,
             contents,

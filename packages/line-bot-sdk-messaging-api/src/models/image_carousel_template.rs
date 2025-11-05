@@ -13,16 +13,16 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ImageCarouselTemplate {
-    #[serde(rename = "type")]
-    pub r#type: String,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
     #[serde(rename = "columns")]
     pub columns: Vec<models::ImageCarouselColumn>,
 }
 
 impl ImageCarouselTemplate {
-    pub fn new(r#type: String, columns: Vec<models::ImageCarouselColumn>) -> ImageCarouselTemplate {
+    pub fn new(columns: Vec<models::ImageCarouselColumn>) -> ImageCarouselTemplate {
         ImageCarouselTemplate {
-            r#type,
+            r#type: None,
             columns,
         }
     }

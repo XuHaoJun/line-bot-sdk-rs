@@ -15,8 +15,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RichMenuBatchLinkOperation {
     /// The type of operation to the rich menu linked to the user. One of link, unlink, or unlinkAll.
-    #[serde(rename = "type")]
-    pub r#type: String,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
     #[serde(rename = "from")]
     pub from: String,
     #[serde(rename = "to")]
@@ -25,9 +25,9 @@ pub struct RichMenuBatchLinkOperation {
 
 impl RichMenuBatchLinkOperation {
     /// Replace the rich menu with the rich menu specified in the `to` property for all users linked to the rich menu specified in the `from` property.
-    pub fn new(r#type: String, from: String, to: String) -> RichMenuBatchLinkOperation {
+    pub fn new(from: String, to: String) -> RichMenuBatchLinkOperation {
         RichMenuBatchLinkOperation {
-            r#type,
+            r#type: None,
             from,
             to,
         }

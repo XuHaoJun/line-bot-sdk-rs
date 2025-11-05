@@ -13,16 +13,16 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FlexCarousel {
-    #[serde(rename = "type")]
-    pub r#type: String,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
     #[serde(rename = "contents")]
     pub contents: Vec<models::FlexBubble>,
 }
 
 impl FlexCarousel {
-    pub fn new(r#type: String, contents: Vec<models::FlexBubble>) -> FlexCarousel {
+    pub fn new(contents: Vec<models::FlexBubble>) -> FlexCarousel {
         FlexCarousel {
-            r#type,
+            r#type: None,
             contents,
         }
     }

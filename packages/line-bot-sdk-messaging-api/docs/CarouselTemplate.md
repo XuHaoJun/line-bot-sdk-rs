@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | **String** |  | 
+**r#type** | Option<**String**> |  | [optional]
 **columns** | [**Vec<models::CarouselColumn>**](CarouselColumn.md) |  | 
 **image_aspect_ratio** | Option<**String**> |  | [optional]
 **image_size** | Option<**String**> |  | [optional]

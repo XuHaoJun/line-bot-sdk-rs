@@ -13,10 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClipboardImagemapAction {
-    #[serde(rename = "type")]
-    pub r#type: String,
-    #[serde(rename = "area")]
-    pub area: Box<models::ImagemapArea>,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
+    #[serde(rename = "area", skip_serializing_if = "Option::is_none")]
+    pub area: Option<Box<models::ImagemapArea>>,
     /// Text that is copied to the clipboard. Max character limit: 1000 
     #[serde(rename = "clipboardText")]
     pub clipboard_text: String,
@@ -25,10 +25,10 @@ pub struct ClipboardImagemapAction {
 }
 
 impl ClipboardImagemapAction {
-    pub fn new(r#type: String, area: models::ImagemapArea, clipboard_text: String) -> ClipboardImagemapAction {
+    pub fn new(clipboard_text: String) -> ClipboardImagemapAction {
         ClipboardImagemapAction {
-            r#type,
-            area: Box::new(area),
+            r#type: None,
+            area: None,
             clipboard_text,
             label: None,
         }

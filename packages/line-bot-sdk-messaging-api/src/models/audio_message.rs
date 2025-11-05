@@ -14,8 +14,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AudioMessage {
     /// Type of message
-    #[serde(rename = "type")]
-    pub r#type: String,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
     #[serde(rename = "quickReply", skip_serializing_if = "Option::is_none")]
     pub quick_reply: Option<Box<models::QuickReply>>,
     #[serde(rename = "sender", skip_serializing_if = "Option::is_none")]
@@ -27,9 +27,9 @@ pub struct AudioMessage {
 }
 
 impl AudioMessage {
-    pub fn new(r#type: String, original_content_url: String, duration: i64) -> AudioMessage {
+    pub fn new(original_content_url: String, duration: i64) -> AudioMessage {
         AudioMessage {
-            r#type,
+            r#type: None,
             quick_reply: None,
             sender: None,
             original_content_url,

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | **String** |  | 
+**r#type** | Option<**String**> |  | [optional]
 **url** | **String** |  | 
 **size** | Option<**String**> |  | [optional]
 **aspect_ratio** | Option<**String**> |  | [optional]

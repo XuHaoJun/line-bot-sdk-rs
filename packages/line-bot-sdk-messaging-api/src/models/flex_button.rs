@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FlexButton {
-    #[serde(rename = "type")]
-    pub r#type: String,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
     #[serde(rename = "flex", skip_serializing_if = "Option::is_none")]
     pub flex: Option<i32>,
     #[serde(rename = "color", skip_serializing_if = "Option::is_none")]
@@ -46,9 +46,9 @@ pub struct FlexButton {
 }
 
 impl FlexButton {
-    pub fn new(r#type: String, action: models::Action) -> FlexButton {
+    pub fn new(action: models::Action) -> FlexButton {
         FlexButton {
-            r#type,
+            r#type: None,
             flex: None,
             color: None,
             style: None,
