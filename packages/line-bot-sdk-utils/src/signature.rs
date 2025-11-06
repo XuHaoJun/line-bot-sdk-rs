@@ -88,7 +88,10 @@ impl std::fmt::Display for SignatureValidationError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             SignatureValidationError::InvalidSignatureFormat => {
-                write!(f, "Invalid signature format: signature must be base64 encoded")
+                write!(
+                    f,
+                    "Invalid signature format: signature must be base64 encoded"
+                )
             }
             SignatureValidationError::InvalidKey => {
                 write!(f, "Invalid channel secret key")
@@ -98,4 +101,3 @@ impl std::fmt::Display for SignatureValidationError {
 }
 
 impl std::error::Error for SignatureValidationError {}
-

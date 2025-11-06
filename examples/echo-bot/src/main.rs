@@ -15,18 +15,6 @@ use line_bot_sdk_webhook::models::{CallbackRequest, Event};
 use serde_json::json;
 use std::env;
 
-/// Helper trait to convert structs to their enum wrappers
-/// Needed because OpenAPI generator doesn't support allOf in enum variants
-trait IntoEnum<T> {
-    fn into_enum(self) -> Result<T, serde_json::Error>;
-}
-
-impl<S: serde::Serialize, T: serde::de::DeserializeOwned> IntoEnum<T> for S {
-    fn into_enum(self) -> Result<T, serde_json::Error> {
-        serde_json::from_value(serde_json::to_value(self)?)
-    }
-}
-
 #[tokio::main]
 async fn main() {
     // Get configuration from environment variables
@@ -171,7 +159,7 @@ async fn handle_event(
     };
 
     // Convert TextMessage struct to Message enum
-    let message: Message = text_message.into_enum()?;
+    let message: Message = text_message.into();
 
     // Create reply request
     let reply_request = ReplyMessageRequest::new(reply_token, vec![message]);

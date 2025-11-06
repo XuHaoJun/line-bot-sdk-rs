@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { exec } = require("child_process");
 const yaml = require("js-yaml");
+const { postProcessEnums } = require("./post-process-enums");
 
 // Create tmp directory if it doesn't exist
 const TMP_DIR = "./tmp";
@@ -74,6 +75,20 @@ function flattenAllOf(schema, schemas) {
 }
 
 /**
+ * Remove discriminators from schemas
+ * The Rust generator's discriminator handling doesn't properly include child-specific fields
+ * in enum variants. We remove discriminators so it generates structs instead.
+ */
+function removeDiscriminators(schemas) {
+  Object.keys(schemas).forEach((schemaName) => {
+    if (schemas[schemaName] && schemas[schemaName].discriminator) {
+      console.log(`  Removing discriminator from ${schemaName}`);
+      delete schemas[schemaName].discriminator;
+    }
+  });
+}
+
+/**
  * Process OpenAPI spec to flatten allOf
  */
 function processOpenAPISpec(inputPath, outputPath) {
@@ -87,9 +102,13 @@ function processOpenAPISpec(inputPath, outputPath) {
   if (spec.components && spec.components.schemas) {
     const schemas = spec.components.schemas;
     
+    // Step 1: Flatten all allOf compositions
     Object.keys(schemas).forEach((schemaName) => {
       schemas[schemaName] = flattenAllOf(schemas[schemaName], schemas);
     });
+    
+    // Step 2: Remove discriminators to prevent broken enum generation
+    removeDiscriminators(schemas);
   }
 
   // Write processed spec to tmp directory
@@ -142,6 +161,13 @@ fs.readFile("./openapi-generator/projects.json", "utf8", (err, data) => {
       console.log(stdout);
       if (stderr) {
         console.error(stderr);
+      }
+
+      // Post-process to generate proper enums from discriminated schemas
+      try {
+        postProcessEnums(inputSpec, `./packages/${packageName}`);
+      } catch (error) {
+        console.error(`Error post-processing enums for ${spec}:`, error);
       }
     });
   });

@@ -40,7 +40,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let flex_message = build_flex_message()?;
 
     // Convert FlexMessage struct to Message enum
-    let message: Message = flex_message.into_enum()?;
+    let message: Message = flex_message.into();
 
     // Create push message request
     let push_request = PushMessageRequest::new(user_id, vec![message]);
