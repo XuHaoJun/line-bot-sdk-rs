@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { exec } = require("child_process");
 const yaml = require("js-yaml");
-const { postProcessEnums } = require("./post-process-enums");
+const { postProcessEnumsV2 } = require("./post-process-enums-v2");
 
 // Create tmp directory if it doesn't exist
 const TMP_DIR = "./tmp";
@@ -165,7 +165,7 @@ fs.readFile("./openapi-generator/projects.json", "utf8", (err, data) => {
 
       // Post-process to generate proper enums from discriminated schemas
       try {
-        postProcessEnums(inputSpec, `./packages/${packageName}`);
+        postProcessEnumsV2(inputSpec, `./packages/${packageName}`);
       } catch (error) {
         console.error(`Error post-processing enums for ${spec}:`, error);
       }
