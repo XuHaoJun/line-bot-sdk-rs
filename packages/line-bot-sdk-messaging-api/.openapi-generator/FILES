@@ -120,6 +120,7 @@ docs/LocationAction.md
 docs/LocationMessage.md
 docs/LotteryAcquisitionConditionRequest.md
 docs/LotteryAcquisitionConditionResponse.md
+docs/MarkMessagesAsReadByTokenRequest.md
 docs/MarkMessagesAsReadRequest.md
 docs/MembersIdsResponse.md
 docs/Membership.md
@@ -325,6 +326,7 @@ src/models/location_action.rs
 src/models/location_message.rs
 src/models/lottery_acquisition_condition_request.rs
 src/models/lottery_acquisition_condition_response.rs
+src/models/mark_messages_as_read_by_token_request.rs
 src/models/mark_messages_as_read_request.rs
 src/models/members_ids_response.rs
 src/models/membership.rs

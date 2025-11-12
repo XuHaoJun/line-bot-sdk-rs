@@ -51,6 +51,7 @@ Method | HTTP request | Description
 [**link_rich_menu_id_to_users**](MessagingApiApi.md#link_rich_menu_id_to_users) | **POST** /v2/bot/richmenu/bulk/link | 
 [**list_coupon**](MessagingApiApi.md#list_coupon) | **GET** /v2/bot/coupon | 
 [**mark_messages_as_read**](MessagingApiApi.md#mark_messages_as_read) | **POST** /v2/bot/message/markAsRead | 
+[**mark_messages_as_read_by_token**](MessagingApiApi.md#mark_messages_as_read_by_token) | **POST** /v2/bot/chat/markAsRead | 
 [**multicast**](MessagingApiApi.md#multicast) | **POST** /v2/bot/message/multicast | 
 [**narrowcast**](MessagingApiApi.md#narrowcast) | **POST** /v2/bot/message/narrowcast | 
 [**push_message**](MessagingApiApi.md#push_message) | **POST** /v2/bot/message/push | 
@@ -1462,6 +1463,36 @@ Name | Type | Description  | Required | Notes
 
 - **Content-Type**: application/json
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## mark_messages_as_read_by_token
+
+> mark_messages_as_read_by_token(mark_messages_as_read_by_token_request)
+
+
+Mark messages from users as read by token
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**mark_messages_as_read_by_token_request** | [**MarkMessagesAsReadByTokenRequest**](MarkMessagesAsReadByTokenRequest.md) |  | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

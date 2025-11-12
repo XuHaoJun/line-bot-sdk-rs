@@ -362,6 +362,14 @@ pub enum MarkMessagesAsReadError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`mark_messages_as_read_by_token`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum MarkMessagesAsReadByTokenError {
+    Status400(models::ErrorResponse),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`multicast`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -2795,6 +2803,45 @@ pub async fn mark_messages_as_read(
     } else {
         let content = resp.text().await?;
         let entity: Option<MarkMessagesAsReadError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+/// Mark messages from users as read by token
+pub async fn mark_messages_as_read_by_token(
+    configuration: &configuration::Configuration,
+    mark_messages_as_read_by_token_request: models::MarkMessagesAsReadByTokenRequest,
+) -> Result<(), Error<MarkMessagesAsReadByTokenError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_mark_messages_as_read_by_token_request = mark_messages_as_read_by_token_request;
+
+    let uri_str = format!("{}/v2/bot/chat/markAsRead", configuration.base_path);
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.bearer_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_mark_messages_as_read_by_token_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<MarkMessagesAsReadByTokenError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,

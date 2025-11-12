@@ -73,6 +73,7 @@ Class | Method | HTTP request | Description
 *MessagingApiApi* | [**link_rich_menu_id_to_users**](docs/MessagingApiApi.md#link_rich_menu_id_to_users) | **POST** /v2/bot/richmenu/bulk/link | 
 *MessagingApiApi* | [**list_coupon**](docs/MessagingApiApi.md#list_coupon) | **GET** /v2/bot/coupon | 
 *MessagingApiApi* | [**mark_messages_as_read**](docs/MessagingApiApi.md#mark_messages_as_read) | **POST** /v2/bot/message/markAsRead | 
+*MessagingApiApi* | [**mark_messages_as_read_by_token**](docs/MessagingApiApi.md#mark_messages_as_read_by_token) | **POST** /v2/bot/chat/markAsRead | 
 *MessagingApiApi* | [**multicast**](docs/MessagingApiApi.md#multicast) | **POST** /v2/bot/message/multicast | 
 *MessagingApiApi* | [**narrowcast**](docs/MessagingApiApi.md#narrowcast) | **POST** /v2/bot/message/narrowcast | 
 *MessagingApiApi* | [**push_message**](docs/MessagingApiApi.md#push_message) | **POST** /v2/bot/message/push | 
@@ -220,6 +221,7 @@ Class | Method | HTTP request | Description
  - [LocationMessage](docs/LocationMessage.md)
  - [LotteryAcquisitionConditionRequest](docs/LotteryAcquisitionConditionRequest.md)
  - [LotteryAcquisitionConditionResponse](docs/LotteryAcquisitionConditionResponse.md)
+ - [MarkMessagesAsReadByTokenRequest](docs/MarkMessagesAsReadByTokenRequest.md)
  - [MarkMessagesAsReadRequest](docs/MarkMessagesAsReadRequest.md)
  - [MembersIdsResponse](docs/MembersIdsResponse.md)
  - [Membership](docs/Membership.md)

@@ -234,6 +234,8 @@ pub mod lottery_acquisition_condition_request;
 pub use self::lottery_acquisition_condition_request::LotteryAcquisitionConditionRequest;
 pub mod lottery_acquisition_condition_response;
 pub use self::lottery_acquisition_condition_response::LotteryAcquisitionConditionResponse;
+pub mod mark_messages_as_read_by_token_request;
+pub use self::mark_messages_as_read_by_token_request::MarkMessagesAsReadByTokenRequest;
 pub mod mark_messages_as_read_request;
 pub use self::mark_messages_as_read_request::MarkMessagesAsReadRequest;
 pub mod members_ids_response;
